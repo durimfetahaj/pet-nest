@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +17,8 @@ const geistMono = Geist_Mono({
 const APP_NAME = "Pet Nest Store";
 const APP_DEFAULT_TITLE = "Pet Nest Store";
 const APP_TITLE_TEMPLATE = "%s - Pet Nest Store";
-const APP_DESCRIPTION = "Best Pet Nest Store in the world!";
+const APP_DESCRIPTION =
+  "Premium quality products for your furry friends. From nutritious food to comfortable accessories.";
 
 export const metadata: Metadata = {
   applicationName: APP_NAME,
@@ -62,7 +65,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="min-h-screen flex-col">
+          <Header />
+          <main className="container mx-auto flex-1">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
