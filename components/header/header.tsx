@@ -14,8 +14,6 @@ export default async function Header() {
   const categories = await getCategories();
   const user = await getUser();
 
-  console.log({ categories });
-
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6 ">
